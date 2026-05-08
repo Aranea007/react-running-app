@@ -1,11 +1,12 @@
 import React from 'react'
 import RunningSAU from './../components/RunningSAU'
 import run from './../assets/run.png'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams,useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import supabase from '../services/supabaseClient'
 
 export default function AddRun() {
+  const navigate = useNavigate()
   //สร้างstate เพื่อเก็บข้อมูล
   const [runDate, setRunDate] = useState('')
   const [runTime, setRunTime] = useState('')
@@ -126,7 +127,7 @@ export default function AddRun() {
     //แสดงข้อความว่าบันทึกสำเร็จ
     alert('บันทึกข้อมูลเรียบร้อย')
     //ย้อนกลับไปหน้าแสดงการวิ่ง
-    window.location.href = '/showallrun'  
+    navigate('/showallrun') 
   }
 
   return (
